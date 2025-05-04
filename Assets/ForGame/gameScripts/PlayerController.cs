@@ -1,52 +1,60 @@
 using UnityEngine;
-using UnityEngine.Events;
+
 public class PlayerController : MonoBehaviour
 {
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
 
-    Rigidbody2D rd2D;
-    Vector2 moveInput;
-    bool isGrounded;
-    bool isJump = false;
 
-     float horizontalMove = 0f;
-
-    [SerializeField] float speed = 40f;
-    [SerializeField] float jumpForce = 30f;
-    public CharacterController controller2D;
-    public Animator animator;
+    private Rigidbody2D rb;
+    private Animator anim;
+   [SerializeField] private bool isGrounded;
 
     void Start()
     {
-        rd2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        rd2D.AddForce(moveInput * speed);
-//animator.SetFloat("walk", moveInput);
+        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        anim.SetFloat("walk", Mathf.Abs(moveInput));
 
-        if (Input.GetButtonDown("Jump") && !isJump)
-        {
-            rd2D.AddForce(new Vector2(rd2D.velocity.x, jumpForce));
-            isJump = true;
-        }
-    }
+        
+        // Flip char
+        if (moveInput != 0)
+            transform.localScale = new Vector3(Mathf.Sign(moveInput), 1, 1);
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
+        // Jump
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            isJump = false;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.SetBool("jump", !isGrounded);
         }
-    }
 
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
+        //check isGround
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            isJump = true;
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                isGrounded = true;
+                anim.SetBool("jump", false); // optional: tell animator we landed
+            }
         }
+
+        void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                isGrounded = false;
+                anim.SetBool("jump", true); // optional: tell animator we're airborne
+            }
+        }
+
+
+
     }
 }
+
