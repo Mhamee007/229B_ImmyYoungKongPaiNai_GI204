@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class SkyRun : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] float scrollSpeed = 0.5f;
+ 
+    public float resetPositionX = 20f; //  X position before reset
+    public float startPositionX = -20f;  // Where to place it when resetting
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector3.right * scrollSpeed * Time.deltaTime);
+
+        if (transform.position.x > resetPositionX)
+        {
+            Vector3 newPos = transform.position;
+            newPos.x = startPositionX;
+            transform.position = newPos;
+        }
     }
 }
