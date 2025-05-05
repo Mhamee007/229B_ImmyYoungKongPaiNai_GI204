@@ -478,7 +478,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 8.419334, y: 0}
+  m_Offset: {x: 8.419334, y: 0.00817585}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -488,7 +488,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 17.838673, y: 1}
+  m_Size: {x: 17.838673, y: 1.0163517}
   m_EdgeRadius: 0
 --- !u!1 &1229346075
 GameObject:
@@ -783,7 +783,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4438162921051260730, guid: 4f22785a2bdef08499b36c3506e7effa, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 6945943587791876368, guid: 4f22785a2bdef08499b36c3506e7effa, type: 3}
       propertyPath: m_Name
