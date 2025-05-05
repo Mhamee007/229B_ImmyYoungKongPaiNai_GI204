@@ -34,23 +34,24 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(rb.velocity.x, jumpForce));
 
         }
+    }
 
-        void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
         {
-            if (other.gameObject.CompareTag("floor"))
-            {
-                IsJumpping = false;
-            }
+            IsJumpping = false;
+            anim.SetBool("jump", false);
         }
+    }
 
-        void OnCollisionExit2D(Collision2D other)
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
         {
-            if (other.gameObject.CompareTag("floor"))
-            {
-                IsJumpping = true;
-            }
+            IsJumpping = true;
+            anim.SetBool("jump", true);
         }
-
     }
 }
 
