@@ -437,8 +437,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 7.5
-  isGrounded: 0
+  jumpForce: 275
+  IsJumpping: 0
 --- !u!1 &1208775125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4438162921051260730, guid: 4f22785a2bdef08499b36c3506e7effa, type: 3}
