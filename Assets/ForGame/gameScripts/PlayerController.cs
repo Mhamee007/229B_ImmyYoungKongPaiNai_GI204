@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-
-
     private Rigidbody2D rb;
     private Animator anim;
-   [SerializeField] private bool isGrounded;
 
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+    [SerializeField] bool IsJumpping = false;
+
+    
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,32 +29,27 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(Mathf.Sign(moveInput), 1, 1);
 
         // Jump
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && !IsJumpping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            anim.SetBool("jump", !isGrounded);
+            rb.AddForce(new Vector2(rb.velocity.x, jumpForce));
+
         }
 
-        //check isGround
-        void OnCollisionEnter2D(Collision2D collision)
+        void OnCollisionEnter2D(Collision2D other)
         {
-            if (collision.gameObject.CompareTag("Ground"))
+            if (other.gameObject.CompareTag("floor"))
             {
-                isGrounded = true;
-                anim.SetBool("jump", false); // optional: tell animator we landed
+                IsJumpping = false;
             }
         }
 
-        void OnCollisionExit2D(Collision2D collision)
+        void OnCollisionExit2D(Collision2D other)
         {
-            if (collision.gameObject.CompareTag("Ground"))
+            if (other.gameObject.CompareTag("floor"))
             {
-                isGrounded = false;
-                anim.SetBool("jump", true); // optional: tell animator we're airborne
+                IsJumpping = true;
             }
         }
-
-
 
     }
 }
