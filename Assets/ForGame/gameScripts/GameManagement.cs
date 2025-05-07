@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     public TMP_Text scoreText;
-    public TMP_Text FinalScore;
 
     void Awake()
     {
@@ -27,7 +26,8 @@ public class GameManager : MonoBehaviour
     {
         int finalScore = GameManager.Instance.score;
         scoreText.text = "Score: " + finalScore;
-        
+        UpdateScoreUI();
+
     }
     public void AddScore(int points)
     {
@@ -44,6 +44,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+    }
 
-    
+
+
 }
