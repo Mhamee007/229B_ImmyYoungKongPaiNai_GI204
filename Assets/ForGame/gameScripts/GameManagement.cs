@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject); // Optional: keep GameManager across scenes
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
