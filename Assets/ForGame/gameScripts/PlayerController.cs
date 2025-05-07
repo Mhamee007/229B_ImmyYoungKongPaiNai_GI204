@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         anim.SetFloat("walk", Mathf.Abs(moveInput));
 
         
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && !IsJumpping)
         {
-            rb.AddForce(new Vector2(rb.velocity.x, jumpForce));
+            rb.AddForce(new Vector2(rb.linearVelocity.x, jumpForce));
         }
     }
 

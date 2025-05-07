@@ -42,7 +42,7 @@ public class Projectile2DforBall : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
 
         Rigidbody2D newProjectile = Instantiate(objectToShoot, shootPoint.position, Quaternion.identity);
-        newProjectile.velocity = velocity;
+        newProjectile.linearVelocity = velocity;
         Destroy(newProjectile.gameObject, destroyAfter); //destroy after not use.
 
         yield return new WaitForSeconds(0.1f); // allowing next shoot
