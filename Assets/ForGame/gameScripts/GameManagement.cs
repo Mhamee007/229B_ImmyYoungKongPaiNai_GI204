@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     public int score = 0;
+    public TMP_Text scoreText;
 
     void Awake()
     {
@@ -19,9 +21,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        int finalScore = GameManager.Instance.score;
+        scoreText.text = "Score: " + finalScore;
+        
+    }
     public void AddScore(int points)
     {
         score += points;
         Debug.Log("Score: " + score);
+        UpdateScoreUI();
     }
+
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+    }
+
+
+    
 }
