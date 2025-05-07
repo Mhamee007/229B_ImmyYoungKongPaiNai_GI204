@@ -1,16 +1,37 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameMagnagement : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Projectile2DforBall ballScore;
+    private int score = 0;
+    public int finalScore;
+    public static GameManager Instance;
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Keeps this GameObject alive across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Prevents duplicates
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveScore(int score)
     {
-        
+        finalScore = score;
+        Debug.Log("Score Saved: " + finalScore);
+
     }
+
+    public void ResetScore()
+    {
+        score = 0;
+    }
+
+
 }
