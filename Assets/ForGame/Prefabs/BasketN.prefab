@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6296868669656806707}
   - component: {fileID: 6152506237902605857}
-  - component: {fileID: 8938343842917984567}
+  - component: {fileID: 4946631429061479602}
   m_Layer: 0
   m_Name: basket
   m_TagString: Untagged
@@ -88,13 +88,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &8938343842917984567
-BoxCollider:
+--- !u!61 &4946631429061479602
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2334311605978961857}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -103,12 +106,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.0000002, z: 0.2}
-  m_Center: {x: 0.00000023841858, y: -0.0000076293945, z: 0}
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2452384618362251353
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,6 +279,7 @@ GameObject:
   - component: {fileID: 6218403802912923460}
   - component: {fileID: 5537990887313887823}
   - component: {fileID: 6228012296703340447}
+  - component: {fileID: -99874917690199399}
   m_Layer: 0
   m_Name: BasketN
   m_TagString: basket
@@ -313,7 +339,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.55075014, y: -0.059411645}
+  m_Offset: {x: 0.5409062, y: -0.15785086}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -323,7 +349,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.796376, y: 0.1876607}
+  m_Size: {x: 0.5561843, y: 0.38453913}
   m_EdgeRadius: 0
 --- !u!95 &6228012296703340447
 Animator:
@@ -347,6 +373,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-99874917690199399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137291896163630880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1e720657e316d43977727ff2efb01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 10
 --- !u!1 &8347584736813338419
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3774514527505025158}
   - component: {fileID: 1152974053350608883}
+  - component: {fileID: 1434993985266789770}
   m_Layer: 0
   m_Name: goldBasket
   m_TagString: basket
@@ -81,6 +82,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.89497185, y: 0.26023626}
   m_EdgeRadius: 0
+--- !u!114 &1434993985266789770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2405605780237859917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1e720657e316d43977727ff2efb01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 9.5
 --- !u!1 &6431359630261608115
 GameObject:
   m_ObjectHideFlags: 0
