@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !IsJumpping)
         {
             rb.AddForce(new Vector2(rb.linearVelocity.x, jumpForce));
+
         }
     }
 
