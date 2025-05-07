@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sports-basketball_0: 4120902134247606530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
