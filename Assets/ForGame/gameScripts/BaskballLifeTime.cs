@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class BaskballLifeTime : MonoBehaviour
 {
@@ -16,8 +15,17 @@ public class BaskballLifeTime : MonoBehaviour
     {
         if (other.gameObject.CompareTag("basket"))
         {
-            Destroy(other.gameObject);// Destroy the basket
-            Destroy(gameObject); // Destroy the projectile
+           
+            GameManager.Instance.AddScore(1); 
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("basketG"))
+        {
+            GameManager.Instance.AddScore(5); 
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 

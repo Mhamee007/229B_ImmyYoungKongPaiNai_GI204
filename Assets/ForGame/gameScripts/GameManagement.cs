@@ -1,37 +1,27 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Projectile2DforBall ballScore;
-    private int score = 0;
-    public int finalScore;
     public static GameManager Instance;
 
-    private void Awake()
+    public int score = 0;
+
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Keeps this GameObject alive across scenes
+            DontDestroyOnLoad(gameObject); // Optional: keep GameManager across scenes
         }
         else
         {
-            Destroy(gameObject); // Prevents duplicates
+            Destroy(gameObject);
         }
     }
 
-    public void SaveScore(int score)
+    public void AddScore(int points)
     {
-        finalScore = score;
-        Debug.Log("Score Saved: " + finalScore);
-
+        score += points;
+        Debug.Log("Score: " + score);
     }
-
-    public void ResetScore()
-    {
-        score = 0;
-    }
-
-
 }
