@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
     public TMP_Text scoreText;
+    public TMP_Text FinalScore;
 
     void Awake()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 public class BaskballLifeTime : MonoBehaviour
 {
     private bool hasHitBasket = false;
-    private float lifetime = 5f;
+    [SerializeField]private float lifetime = 5f;
 
     public void SetLifetime(float time)
     {
